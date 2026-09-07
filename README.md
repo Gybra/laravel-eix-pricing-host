@@ -11,12 +11,25 @@ belongs to the package; this repository supplies runtime infrastructure only.
 - Composer 2
 - PostgreSQL for deployment
 
-## Local bootstrap
+## Docker
 
 ``` bash
 composer install
 cp .env.example .env
 php artisan key:generate
+docker compose build
+docker compose up -d app scheduler
+docker compose run --rm app php artisan migrate --force
+```
+
+The app is available at `http://localhost:8000`. The scheduler runs the
+package-owned import schedule in a separate container. Migrations and manual
+imports remain explicit operator actions and are never run automatically at
+container startup.
+
+For development without Docker:
+
+``` bash
 php artisan migrate
 php artisan serve
 ```
@@ -46,8 +59,8 @@ composer analyse
 composer audit --locked --no-interaction
 ```
 
-Docker, Supabase PostgreSQL, and Cloudflare R2 setup are added in the next
-host deployment slices.
+Supabase PostgreSQL and Cloudflare R2 environment setup are added in the next
+host deployment slice.
 
 ## License
 

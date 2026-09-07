@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - "${APP_PORT:-8000}:80"
+    restart: unless-stopped
+
+  scheduler:
+    build: .
+    command: php artisan schedule:work
+    env_file: .env
+    restart: unless-stopped
+    user: www-data
