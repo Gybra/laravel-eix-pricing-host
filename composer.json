@@ -12,7 +12,8 @@
     "require": {
         "php": "^8.4",
         "gybra/laravel-eix-pricing": "dev-main",
-        "laravel/framework": "^13.17"
+        "laravel/framework": "^13.17",
+        "league/flysystem-aws-s3-v3": "^3.0"
     },
     "require-dev": {
         "larastan/larastan": "^3.11",

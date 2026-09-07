@@ -50,6 +50,44 @@ Run the package importer manually:
 php artisan eix:import
 ```
 
+## Supabase PostgreSQL
+
+Set `DB_URL` to a Supabase direct connection or Session Pooler URL and keep
+`DB_SSLMODE=require`. Prefer the direct connection when the Docker host has
+IPv6 connectivity; otherwise use the Session Pooler on port 5432. Do not use
+the Transaction Pooler as the default Laravel connection.
+
+``` dotenv
+DB_CONNECTION=pgsql
+DB_URL=postgresql://USER:PASSWORD@HOST:5432/postgres
+DB_SSLMODE=require
+EIX_DB_CONNECTION=pgsql
+```
+
+URL-encode reserved characters in the password. The database cache store is
+shared by the app and scheduler, allowing package import locks and
+single-server scheduling without Redis.
+
+## Cloudflare R2
+
+Create an R2 API token scoped to the private source bucket with object read
+and write permissions. Configure Laravel's standard S3-compatible disk:
+
+``` dotenv
+AWS_ACCESS_KEY_ID=R2_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY=R2_SECRET_ACCESS_KEY
+AWS_DEFAULT_REGION=auto
+AWS_BUCKET=R2_BUCKET_NAME
+AWS_ENDPOINT=https://ACCOUNT_ID.r2.cloudflarestorage.com
+AWS_USE_PATH_STYLE_ENDPOINT=false
+EIX_STORAGE_DISK=s3
+EIX_STORAGE_PREFIX=eix
+```
+
+No public bucket URL is required. EIX source objects are transient: the
+package deletes the R2 object and local temporary file after every successful
+or failed import attempt.
+
 ## Quality checks
 
 ``` bash
@@ -58,9 +96,6 @@ composer format:check
 composer analyse
 composer audit --locked --no-interaction
 ```
-
-Supabase PostgreSQL and Cloudflare R2 environment setup are added in the next
-host deployment slice.
 
 ## License
 
