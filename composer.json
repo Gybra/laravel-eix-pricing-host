@@ -1,0 +1,70 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "gybra/laravel-eix-pricing-host",
+    "type": "project",
+    "description": "Dockerized Laravel reference host for gybra/laravel-eix-pricing.",
+    "keywords": [
+        "eix",
+        "laravel",
+        "quotes"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "gybra/laravel-eix-pricing": "dev-main",
+        "laravel/framework": "^13.17"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.11",
+        "laravel/pint": "^1.27",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^5.1",
+        "pestphp/pest-plugin-laravel": "^5.0"
+    },
+    "autoload": {},
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ],
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "pint",
+        "format:check": "pint --test"
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "name": "eix-pricing",
+            "type": "vcs",
+            "url": "https://github.com/Gybra/laravel-eix-pricing.git"
+        }
+    ]
+}
