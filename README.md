@@ -34,8 +34,7 @@ php artisan migrate
 php artisan serve
 ```
 
-The package is temporarily resolved from its public Composer repository at
-`dev-main`. The host will pin `^0.1` after the first package release.
+The package is installed from Packagist as `gybra/laravel-eix-pricing:^0.2`.
 
 Check the application and package route:
 
