@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e92d1a10e8acb6c63552132bab57a0dd",
+    "content-hash": "3202879f8a1d0a96a8f03d5ef03b73d8",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1212,16 +1212,16 @@
         },
         {
             "name": "gybra/laravel-eix-pricing",
-            "version": "dev-main",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gybra/laravel-eix-pricing.git",
-                "reference": "cb07182825c5d731992f593ec479371e4eecbe30"
+                "reference": "f3235c2bf311ea381a3eaf7ae404e5eed482947e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gybra/laravel-eix-pricing/zipball/cb07182825c5d731992f593ec479371e4eecbe30",
-                "reference": "cb07182825c5d731992f593ec479371e4eecbe30",
+                "url": "https://api.github.com/repos/Gybra/laravel-eix-pricing/zipball/f3235c2bf311ea381a3eaf7ae404e5eed482947e",
+                "reference": "f3235c2bf311ea381a3eaf7ae404e5eed482947e",
                 "shasum": ""
             },
             "require": {
@@ -1235,7 +1235,6 @@
                 "orchestra/testbench": "^11.2",
                 "pestphp/pest": "^5.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1249,26 +1248,7 @@
                     "Gybra\\EixPricing\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Gybra\\EixPricing\\Database\\Factories\\": "database/factories/",
-                    "Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "analyse": [
-                    "phpstan analyse --memory-limit=1G"
-                ],
-                "format": [
-                    "pint"
-                ],
-                "format:check": [
-                    "pint --test"
-                ],
-                "test": [
-                    "pest"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1284,7 +1264,7 @@
                 "issues": "https://github.com/Gybra/laravel-eix-pricing/issues",
                 "source": "https://github.com/Gybra/laravel-eix-pricing"
             },
-            "time": "2026-09-08T22:12:12+00:00"
+            "time": "2026-09-08T22:15:53+00:00"
         },
         {
             "name": "laravel/framework",
@@ -9831,9 +9811,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "gybra/laravel-eix-pricing": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
