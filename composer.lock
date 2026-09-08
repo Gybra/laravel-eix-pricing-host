@@ -1216,12 +1216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gybra/laravel-eix-pricing.git",
-                "reference": "43a5da10d19911be59e8cc9b292993a895cf0ae5"
+                "reference": "cb07182825c5d731992f593ec479371e4eecbe30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gybra/laravel-eix-pricing/zipball/43a5da10d19911be59e8cc9b292993a895cf0ae5",
-                "reference": "43a5da10d19911be59e8cc9b292993a895cf0ae5",
+                "url": "https://api.github.com/repos/Gybra/laravel-eix-pricing/zipball/cb07182825c5d731992f593ec479371e4eecbe30",
+                "reference": "cb07182825c5d731992f593ec479371e4eecbe30",
                 "shasum": ""
             },
             "require": {
@@ -1251,6 +1251,7 @@
             },
             "autoload-dev": {
                 "psr-4": {
+                    "Gybra\\EixPricing\\Database\\Factories\\": "database/factories/",
                     "Tests\\": "tests/"
                 }
             },
@@ -1283,7 +1284,7 @@
                 "issues": "https://github.com/Gybra/laravel-eix-pricing/issues",
                 "source": "https://github.com/Gybra/laravel-eix-pricing"
             },
-            "time": "2026-09-08T21:16:24+00:00"
+            "time": "2026-09-08T22:12:12+00:00"
         },
         {
             "name": "laravel/framework",
